@@ -1,0 +1,197 @@
+@import "./../base";
+
+/**
+* 首页的样式
+* create by ZC 2016/12/26
+**/
+
+/* 首页头部 搜索框 start */
+.x-home-search-box{
+  padding: .5rem 1rem;
+  height:35px;
+  line-height: 35px;
+  background-color: #fff;
+  border-bottom: 1px solid @border;
+  box-sizing: content-box;
+  .x-address{
+    position: relative;
+    padding-right: 1.5rem;
+    &::after{
+      content: '';
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      bottom: 0;
+      right: .4rem;
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 6px;
+      width: 6px;
+      border-width: 2px 2px 0 0;
+      border-color: #c8c8cd;
+      border-style: solid;
+      .x-transform(rotate(135deg));
+    }
+  }
+}
+/* 首页头部 搜索框 end */
+
+/* 首页商品类型 start */
+.x-home-category-box{
+  .x-category-icon{
+    display: inline-block;
+    width:3rem;
+    height:3rem;
+    &.food-icon{
+      background: url(/src/assets/images/home/icon/home_category_icon_1.png) no-repeat center;
+      background-size: auto 100%;
+    }
+    &.chinese-food-icon{
+      background: url(/src/assets/images/home/icon/home_category_icon_2.png) no-repeat center;
+      background-size: auto 100%;
+    }
+    &.fun-food-icon{
+      background: url(/src/assets/images/home/icon/home_category_icon_3.png) no-repeat center;
+      background-size: auto 100%;
+    }&.fast-food-icon{
+       background: url(/src/assets/images/home/icon/home_category_icon_4.png) no-repeat center;
+       background-size: auto 100%;
+     }
+  }
+  p{
+    font-size: .8rem;
+  }
+}
+/* 首页商品类型 end */
+
+/* 首页红包轮播 start */
+.x-home-redbag-box{
+  position: relative;
+  padding:1.4rem .8rem;
+  width:100%;
+  height:10rem;
+  background-color: #f5645b;
+  .x-home-redbag{
+    z-index: 1;
+    position: relative;
+    width:100%;
+    height:100%;
+    border: 2px solid #f88b63;
+    img{
+      margin-left: 1rem;
+    }
+    .x-title{
+      margin-left: .8rem;
+      color: #ede2cb;
+      p{
+        font-size: .9rem;
+      }
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      margin: auto;
+      width:97%;
+      height:94%;
+      border:1px solid #f88b63;
+    }
+  }
+  &:before{
+    z-index: 0;
+    content: '左滑查看更多红包';
+    position: absolute;
+    left:2rem;
+    bottom:.3rem;
+    width: 40%;
+    height:.8rem;
+    background: url(./../../images/home/icon/home_redbag_hand_icon.png) left no-repeat;
+    background-size: auto 100%;
+    color: #ede2cb;
+    font-size: .7rem;
+    text-indent: 1.4rem;
+  }
+  &:after{
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top:0;
+    right:0;
+    width: 40%;
+    height:100%;
+    background: url(./../../images/home/icon/home_redbag_envelope_icon.png) right no-repeat;
+    background-size: auto 100%;
+  }
+}
+/* 首页红包轮播 end */
+
+/* 首页护院门店与发现周边选项卡 start */
+.x-home-tab-box{
+  padding: .3rem 0;
+  font-size: .8rem;
+  .x-vip-tab , .x-around-tab{
+    display: inline-block;
+    padding-left: 1.3rem;
+  }
+  .x-vip-tab , .x-around-tab{
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      top:0;
+      left:0;
+      margin: auto;
+      width: 1rem;
+      height:1rem;
+    }
+  }
+  .x-vip-tab{
+    &:before{
+      background: url(./../../images/home/icon/home_tab_icon_1.png) right no-repeat;
+      background-size: auto 80%;
+    }
+    &:after{
+      z-index: 1;
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -25px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 16px;
+      width: 16px;
+      background-color: #fff;
+      border-width: 1px 1px 0 0;
+      border-color: #d8d8d8;
+      border-style: solid;
+      .x-transform(rotate(-45deg));
+    }
+  }
+  .x-around-tab{
+    &:before{
+      background: url(./../../images/home/icon/home_tab_icon_2.png) right no-repeat;
+      background-size: auto 80%;
+    }
+  }
+  &:after{
+    z-index: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #d8d8d8;
+  }
+}
+/* 首页护院门店与发现周边选项卡 end */
+
+/* 首页门店列表 start */
+.x-home-store-box{
+  width:100%;
+}
+/* 首页门店列表 end */

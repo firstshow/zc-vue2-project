@@ -1,0 +1,63 @@
+@import "./../../css/base";
+/**
+* 我的页面样式
+* create by ZC 2016/12/26
+**/
+
+/* 我的栏目 start */
+.x-my-category-box{
+  margin-top: 50px;
+  .x-category-icon{
+    display: inline-block;
+    width:1.6rem;
+    height:1.6rem;
+    &.my-redbag-icon{
+      background: url(./../../../assets/images/my/icon/my_redBag_icon.png) no-repeat center;
+      background-size: auto 100%;
+    }
+    &.my-qrcode-icon{
+      background: url(./../../../assets/images/my/icon/my_QRcode_icon.png) no-repeat center;
+      background-size: auto 100%;
+    }
+    &.my-seckill-icon{
+      background: url(./../../../assets/images/my/icon/my_seckill_icon.png) no-repeat center;
+      background-size: auto 100%;
+    }
+    &.my_order-icon{
+       background: url(./../../../assets/images/my/icon/my_order_icon.png) no-repeat center;
+       background-size: auto 100%;
+     }
+    &.my-attention-icon{
+      background: url(./../../../assets/images/my/icon/my_attention_icon.png) no-repeat center;
+      background-size: auto 100%;
+    }
+  }
+  p{
+    font-size: .8rem;
+  }
+}
+/* 我的栏目 end */
+
+/* 我的二维码 样式 start */
+.x-qrcode-box{
+    padding: 3rem 1rem;
+    font-size: .9rem;
+    .x-qrcode-content{
+        background-color: #fff;
+        .x-border-radius();
+        .x-dex-word{
+            padding:1.5rem 0;
+            border-bottom: 1px dashed @skin ;
+            text-align: center;
+        }
+        .x-qrcode{
+            padding:3rem 4rem 1.5rem 4rem;
+            text-align: center;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+    }
+}
+/* 我的二维码 样式 end */

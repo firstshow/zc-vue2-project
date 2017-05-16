@@ -1,0 +1,81 @@
+@import "../../assets/css/base";
+
+.x-key-board {
+  .x-mask{
+    display: none;
+    z-index: 101;
+    position: fixed;
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+  }
+  .x-key-board-box{
+    display: none;
+    z-index: 102;
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    .x-shadow();
+    .x-transition();
+    /**开启硬件加速·*/
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    /* Other transform properties here */
+    ul{
+      width:100%;
+      border-top: 1px solid #ccc;
+      .x-column{
+        width:25%;
+        .x-item{
+          .x-transition(all .1s ease);
+          width: 100%;
+          height: 4rem;
+          line-height: 4rem;
+          background-color: @border;
+          font-size: 1.4rem;
+          text-align: center;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          &:active{
+            background-color: #ccc;
+          }
+        }
+        .x-del-btn , .x-ok-btn{
+          height: 8rem;
+          line-height: 8rem;
+          border-right: none;
+        }
+        .x-ok-btn{
+          color:#fff;
+          background-color: @skin;
+          font-size: 1.2rem;
+          &.x-disabled-btn{
+            color:#f39c9d !important;
+            background-color: @skin;
+          }
+          &:active{
+            background-color: #E05E62;
+            color:#eee;
+          }
+        }
+        .x-close-key-board-icon{
+          display: inline-block;
+          width:1.8rem;
+          height:1.4rem;
+          background: url(../../assets/images/icon/x_key_board_close_icon.png) no-repeat center;
+          background-size: 100% 100%;
+        }
+        .x-del-key-board-icon{
+          display: inline-block;
+          width:2rem;
+          height:1.2rem;
+          background: url(../../assets/images/icon/x_key_board_del_icon.png) no-repeat center;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+}

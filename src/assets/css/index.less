@@ -1,0 +1,100 @@
+/**
+* APP基础样式
+* 主要定义APP皮肤样式、兼容性的样式 可供其他样式调用
+* create by ZC 2016/10/16
+**/
+
+//以iphone 5s 为基准
+@baseFontSize:13.913;
+
+#app{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+// 默认margin值
+.default-margin {
+  margin: 1rem;
+}
+
+// 默认padding值
+.default-padding {
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+// 阴影
+.x-shadow(@value : 0 1px 3px rgba(50,50,50,.1)) {
+  box-shadow: @value;
+  -webkit-box-shadow: @value;
+  -moz-box-shadow: @value;
+  -o-box-shadow: @value;
+}
+
+// 过渡
+.x-transition(@value : all .3s ease) {
+  transition: @value;
+  -webkit-transition: @value;
+  -moz-transition: @value;
+  -o-transition: @value;
+}
+
+.x-transform(@value) {
+  transform: @value;
+  -moz-transform: @value;
+  -o-transform: @value;
+  -webkit-transform: @value;
+}
+
+.text-overflow(@value: 1) {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @value;
+  -webkit-box-orient: vertical;
+  white-space: nowrap;
+  max-width: 90%;
+}
+
+// 圆角
+.x-border-radius(@value : .3rem) {
+  border-radius: @value;
+  -webkit-border-radius: @value;
+  -moz-border-radius: @value;
+  -o-border-radius: @value;
+}
+
+.px2rem(@name, @px) {
+        @{name}:(@px /2)* (1rem/ @baseFontSize);
+}
+
+.base-padding(@top,@right,@bottom,@left) {
+    .px2rem(padding-top, @top);
+    .px2rem(padding-left, @left);
+    .px2rem(padding-right, @right);
+    .px2rem(padding-bottom, @bottom);
+}
+
+.base-margin(@top,@right,@bottom,@left) {
+    .px2rem(margin-top, @top);
+    .px2rem(margin-left, @left);
+    .px2rem(margin-right, @right);
+    .px2rem(margin-bottom, @bottom);
+}
+
+.base-width(@px) {
+    .px2rem(width, @px);
+}
+
+.base-height(@px) {
+    .px2rem(height, @px);
+}
+
+.base-width-height(@px) {
+    .base-width(@px);
+    .base-height(@px);
+}
+
+.base-font-size(@px) {
+    .px2rem(font-size, @px);
+}

@@ -1,0 +1,95 @@
+@import "../../../assets/css/base";
+/**
+* 会员卡模块的样还是
+* create by ZC 2016/12/26
+**/
+
+.x-vip-money-box{
+    padding: 1rem 0;
+    background-color: @skin;
+    ul{
+        width:100%;
+        li{
+            position: relative;
+            width:100%;
+            text-align: center;
+            color: #fff;
+            .x-title{
+                font-size: .9rem;
+            }
+            .x-money{
+                font-size: 1.6rem;
+                margin-top:.8rem;
+            }
+            &.x-border-right:after{
+                content: '';
+                position: absolute;
+                top:15%;
+                right:0;
+                width:1px;
+                height:70%;
+                border-right: 1px solid #e64233;
+            }
+        }
+    }
+}
+
+.x-vip-search-box{
+    padding:.5rem;
+    background-color: #fff;
+    .x-input{
+        display: inline-block;
+        position: relative;
+        width:100%;
+        background-color: @bg-color;
+        .x-border-radius(6px);
+        input{
+            z-index:1;
+            position: relative;
+            padding:.15rem 0;
+            width:100%;
+            height: 30px;
+            line-height: 30px;
+            color: @black;
+            font-size: .9rem;
+            text-align: center;
+            border:none;
+            outline: none;
+            background-color: transparent;
+        }
+        &.x-placeholder:before{
+            content: '搜索';
+            position: absolute;
+            display: inline-block;
+            top:0;
+            bottom:0;
+            left: 0;
+            right:0;
+            margin: auto;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            width: 100%;
+            text-indent: 1.5rem;
+            font-size: .9rem;
+            color: #737373;
+            text-align: center;
+            vertical-align: middle;
+            background: url(./../../images/home/icon/search_icon.png) no-repeat;
+            background-size: auto 90%;
+            background-position: 45% center;
+        }
+    }
+}
+
+.x-store-vip-info-box {
+    .x-simple-item {
+        .x-content{
+            background-color: #62b900;
+            .x-subtitle{
+                background-color: @red;
+                color: @red;
+            }
+        }
+    }
+}
+

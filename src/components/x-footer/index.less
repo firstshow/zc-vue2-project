@@ -1,0 +1,64 @@
+@import "../../assets/css/color";
+@import "../../assets/css/index";
+
+.x-footer {
+    z-index: 11;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid @border;
+    background-color: #fff;
+    ul {
+        width: 100%;
+        font-size: 0;
+        .x-item {
+            overflow: hidden;
+            float: left;
+            width: 33.333%;
+            text-align: center;
+            font-size: 12px;
+            i, span {
+                display: block;
+                color: @gray-word;
+            }
+            .x-foot-icon {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                &.home-icon {
+                    background: url(../../assets/images/icon/nav_home_icon.png) center no-repeat;
+                    background-size: 100% auto;
+                }
+                &.vip-icon {
+                    background: url(../../assets/images/icon/nav_vip_icon.png) center no-repeat;
+                    background-size: 80% auto;
+                }
+                &.my-icon {
+                    background: url(../../assets/images/icon/nav_my_icon.png) center no-repeat;
+                    background-size: auto 70%;
+                }
+            }
+            &.router-link-active {
+                span {
+                    color: @skin !important;
+                }
+                .x-foot-icon {
+                    &.home-icon {
+                        background: url(../../assets/images/icon/nav_home_icon_active.png) center no-repeat;
+                        background-size: 100% auto;
+                    }
+                    &.vip-icon {
+                        background: url(../../assets/images/icon/nav_vip_icon_active.png) center no-repeat;
+                        background-size: 80% auto;
+                    }
+                    &.my-icon {
+                        background: url(../../assets/images/icon/nav_my_icon_active.png) center no-repeat;
+                        background-size: auto 70%;
+                    }
+                }
+            }
+        }
+    }
+}

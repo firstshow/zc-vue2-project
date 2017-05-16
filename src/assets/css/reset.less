@@ -1,0 +1,91 @@
+/**
+* 定义样式 重置 UI框架的样式 或 浏览器默认样式
+* create by ZC 2016/10/16
+*/
+
+html , body{
+  width:100%;
+  height:100%;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #A1A1A1 !important;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #A1A1A1 !important;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #A1A1A1 !important;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #A1A1A1 !important;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .9rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+input[type="number"]{-moz-appearance:textfield;}
+
+/**
+* 不可选中
+**/
+div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; // 长按不会出现选项
+}
+
+ol, ul, dl {
+  list-style: none;
+}
+
+strong, em, i, h3 {
+  font-style: normal;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

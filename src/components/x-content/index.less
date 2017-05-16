@@ -1,0 +1,16 @@
+@import "../../assets/css/color";
+
+.x-page-content {
+    z-index: 12;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background-color: @bg-color;
+    -webkit-overflow-scrolling: touch;
+    &.x-main-page{
+        z-index: 10 !important;
+    }
+}

@@ -1,0 +1,208 @@
+@import "base";
+/**
+* APP中用到的所有图片小图标样式
+* create by ZC 2017/01/24
+**/
+
+.x-star-icon ,
+.x-location-icon ,
+.x-photo-icon ,
+.x-circle-arrow-icon,
+.x-phone-icon,
+.x-give-icon{
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* 背景图片的星星 start */
+.x-star-icon{
+  vertical-align: middle;
+}
+
+.x-gray-star-icon{
+  background: url(../images/home/icon/gray_star_icon.png) no-repeat center;
+  background-size:100% 100%;
+}
+
+.x-yellow-star-icon{
+  background: url(../images/home/icon/yellow_star_icon.png) no-repeat center;
+  background-size:100% 100%;
+}
+
+.x-half-star-icon{
+  background: url(../images/home/icon/half_star_icon.png) no-repeat center;
+  background-size:100% 100%;
+}
+/* 背景图片的星星 end */
+
+/* 定位的图标 start */
+.x-location-icon{
+  background: url(./../images/home/icon/localition_icon.png) center no-repeat;
+  background-size: auto 100%;
+  vertical-align: middle;
+}
+/* 定位的图标 end */
+
+/* 相册的图标 start */
+.x-photo-icon{
+  background: url(./../../assets/images/home/icon/store_photo_icon.png) no-repeat center;
+  background-size: 100% auto;
+}
+/* 相册的图标 end */
+
+/* 电话的图标 start */
+.x-phone-icon{
+  background: url(./../../assets/images/home/icon/store_phone_icon.png) no-repeat center;
+  background-size: 100% 100%;
+  &.x-vip-phone-icon{
+    width: 1.4rem;
+    height: 1.4rem;
+    background: url(./../../assets/images/vip/icon/vip_phone_icon.png) no-repeat center;
+    background-size: 100% 100%;
+  }
+}
+/* 电话的图标 end */
+
+.x-pain-monkey-icon,
+.x-pain-monkey-icon{
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+/* 开心的猴子logo start */
+.x-pain-monkey-icon{
+    background: url(./../../assets/images/icon/smile_monkey_icon.png) no-repeat center;
+    background-size: 100% auto;
+}
+/* 开心的猴子logo end */
+
+/* 难过的猴子logo start */
+.x-pain-monkey-icon{
+    background: url(./../../assets/images/icon/pain_monkey_icon.png) no-repeat center;
+    background-size: 100% auto;
+}
+/* 难过的猴子logo end */
+
+/* 门店定位的图标 start */
+.x-store-location-icon{
+  display: inline-block;
+  width: .7rem;
+  height: .9rem;
+  background: url(./../../assets/images/home/icon/store_location_icon.png) no-repeat center;
+  background-size: 100% 100%;
+}
+/* 门店定位的图标 end */
+
+/* 是否关注的爱心icon start */
+.x-follow-icon{
+  display: inline-block;
+  width:1.2rem;
+  height:1.2rem;
+  background: url(./../../assets/images/home/icon/no_follow_icon.png) no-repeat center;
+  background-size: 100% auto;
+  &.active{
+    background: url(./../../assets/images/home/icon/follow_icon.png) no-repeat center;
+    background-size: 100% auto;
+  }
+}
+/* 是否关注的爱心icon end */
+
+/* 随机减 与 红包 图标 start */
+.x-discount-icon{
+  display: inline-block;
+  width:3rem;
+  height:1rem;
+  &.x-random-cut-icon{
+    background: url(./../../assets/images/home/icon/store_randomCut_icon.png) no-repeat left;
+    background-size: auto 100%;
+  }
+  &.x-redbag-icon{
+    background: url(./../../assets/images/home/icon/store_redBag_icon.png) no-repeat left;
+    background-size: auto 100%;
+  }
+}
+/* 随机减 与 红包 图标 end */
+
+/* 激活送向上箭头 start */
+.x-circle-arrow-icon{
+  background: url(./../../assets/images/home/icon/store_top_arraw_icon.png) no-repeat left;
+  background-size: 100% 100%;
+  vertical-align: text-bottom;
+}
+/* 激活送向上箭头 end */
+
+/* 赠送小icon start */
+.x-give-icon{
+  background: url(./../../assets/images/home/icon/store_give_icon.png) no-repeat left;
+  background-size: 100% 100%;
+  vertical-align: text-bottom;
+}
+/* 赠送小icon end */
+
+/* 会员充值列表中赠送金额的 icon  start */
+.x-give-money-icon{
+  position: relative;
+  padding-right:3px;
+  color: @skin;
+  font-size: .8rem;
+  border:1px solid @skin;
+  .x-border-radius(3px);
+  &:before{
+    content: '送';
+    margin-right:3px;
+    padding: 2px 4px;
+    height:2rem;
+    background-color: @skin;
+    color: #fff;
+  }
+}
+/* 会员充值列表中赠送金额的 icon  end */
+
+/* 扫码页面中的图标 start */
+.x-scan-code-bag-icon , .x-scan-code-king-icon{
+    width:2.5rem;
+    height:2.5rem;
+}
+
+.x-scan-code-bag-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon1.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.x-scan-code-king-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon2.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.x-scan-code-activation-icon,
+.x-scan-code-pay-icon,
+.x-scan-code-recharge-icon,
+.x-scan-code-recommend-icon{
+    display: inline-block;
+    width:1.5rem;
+    height:1.5rem;
+}
+
+.x-scan-code-activation-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon8.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.x-scan-code-pay-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon9.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.x-scan-code-recharge-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon10.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.x-scan-code-recommend-icon{
+    background: url(./../../assets/images/home/icon/scan_code_icon7.png) no-repeat center;
+    background-size: 100% 100%;
+}
+/* 扫码页面中的图标 end */
+

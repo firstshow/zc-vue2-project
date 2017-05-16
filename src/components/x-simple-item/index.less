@@ -1,0 +1,41 @@
+@import "../../assets/css/base";
+
+.x-simple-item {
+    position: relative;
+    margin-bottom: .5rem;
+    padding:.5rem;
+    background-color: #fff;
+    .x-transition();
+    .x-logo{
+        margin-right:1rem;
+        width: 3rem;
+        height: 3rem;
+        img{
+            width:100%;
+            height:100%;
+        }
+    }
+    .x-content{
+        .x-title{
+            font-size: 1rem;
+        }
+        .x-subtitle{
+            color: @gray-word;
+            font-size: .9rem;
+        }
+    }
+    &:active{
+        background-color: @active-color;
+    }
+    &.x-item-border:after{
+        content: '';
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        left: 0;
+        width:100%;
+        height:1px;
+        border-bottom: 1px solid @border;
+        background: none;
+    }
+}

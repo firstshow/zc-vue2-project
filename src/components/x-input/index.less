@@ -1,0 +1,28 @@
+@import "../../assets/css/base";
+
+.x-input-box {
+  overflow: hidden;
+  position: relative;
+  padding: .5rem 0;
+  width:100%;
+  input{
+    height:2rem;
+    color: #000;
+    font-size: 1rem;
+    border:0;
+    box-shadow: none;
+    outline: none;
+  }
+  &.x-cell-border{
+    &:before{
+      content: '';
+      position: absolute;
+      display: inline-block;
+      bottom: 0;
+      left: 0;
+      width:100%;
+      height:1px;
+      border-bottom: 1px solid @border;
+    }
+  }
+}
