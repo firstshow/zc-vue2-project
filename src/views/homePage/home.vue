@@ -1,6 +1,6 @@
 <template>
     <x-content v-scroll-record topShow title="首页" style="padding-bottom:50px">
-        我是首页
+        我是首页{{ date | transitionDate('HH:MM:SS') }}
         <swiper :options="swiperOption" ref="mySwiper">
           <!-- 幻灯内容 -->
           <swiper-slide v-for="(item,index) in list" :key="item.id">
@@ -30,6 +30,7 @@
         mixins: [swiper],
         data () {
             return {
+                date:'1494924702',
                 alertShow : false,
                 list:[
                     {

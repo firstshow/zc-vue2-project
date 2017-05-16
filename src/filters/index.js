@@ -35,21 +35,24 @@ export const formatDate = (str) => {
  * 如只需要如期，则startNum ： 0 ， endNum ： 10
  */
 export const transitionDate = (val,type) => {
-    val = val.length < 13 ? val*1000 : val*1; // 当不是毫秒时候，转换为毫秒
+    val = val*1 < 100000000000 ? val*1000 : val; // 当不是毫秒时候，转换为毫秒
 
     let date = new Date(val),
     year=date.getFullYear(),
-    month=date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1,
-    day=date.getDate()+1 < 10 ? '0'+(date.getDate()+1) : date.getDate()+1,
-    hour= date.getHours()*1 < 10 ? '0'+date.getHours() : date.getHours(),
-    minute= date.getMinutes()*1 < 10 ? '0'+date.getMinutes() : date.getMinutes(),
-    second= date.getSeconds()*1 < 10 ? '0'+date.getSeconds() : date.getSeconds();
+    month= ('0' + (date.getMonth() + 1)).slice(-2),
+    day= ('0' + date.getDate()).slice(-2),
+    hour= ('0' + date.getHours()).slice(-2),
+    minute= ('0' + date.getMinutes()).slice(-2),
+    second= ('0' + date.getSeconds()).slice(-2);
 
     switch (type){
         case 'YYYY-MM-DD' :
             return   year+"-"+month+"-"+day;
             break;
-        case 'YYYY-MM-DD HH:MM:SS' :
+        case 'HH:MM:SS' :
+            return   hour+":"+minute+":"+second;
+            break;
+        default :
             return   year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
             break;
     }
