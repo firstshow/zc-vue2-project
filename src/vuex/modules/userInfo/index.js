@@ -12,7 +12,8 @@ import * as getters from './getters'
 const localData = JSON.parse(utils.getLocalStorage("userInfo"));
 const state = Object.assign({
     username : 'admin',
-    password : '111111'
+    password : '111111',
+    loginShow : false
 }, localData);
 
 const mutations = {
@@ -26,6 +27,18 @@ const mutations = {
             Object.assign(state, data);
             // 更新后的数据存储到本地
             utils.setLocalStorage('userInfo',state);
+        } catch (err) {
+            console.log("存储错误："+err)
+        }
+    },
+    /**
+     * 更改登录页面显示状态
+     * @param state 状态
+     * @param data 获得的数据
+     * */
+        [types.UPLOAD_LOGIN_STATE] (state, data) {
+        try {
+            state.loginShow = data;
         } catch (err) {
             console.log("存储错误："+err)
         }

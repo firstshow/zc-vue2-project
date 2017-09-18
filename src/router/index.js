@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import {pageRoutes} from './routes'
 // 基础路由 有底部导航栏的入口
 import App from './../App'
+import login from './../views/login.vue'
 /**
  * 定义（路由）组件。
  * 从其他文件 引入 进来
@@ -21,7 +22,10 @@ const routes = [
   {
     path: '/',
     name : 'index',
-    component: App,
+    components: {
+        default : App,
+        view1:login
+    },
     redirect: '/home',
     children : pageRoutes
   },

@@ -4,6 +4,7 @@
     <transition name="slider-pop-out">
       <router-view></router-view>
     </transition>
+  <router-view name="view1"></router-view>
     <x-footer></x-footer>
   </div>
   <!--</keep-alive>-->

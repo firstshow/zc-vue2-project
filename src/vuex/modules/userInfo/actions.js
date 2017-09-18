@@ -18,3 +18,10 @@ export const uploadUserInfo = ({ commit },data ) => {
         });
     })
 }
+
+/**
+ * 修改登录页面显示状态
+ * */
+export const uploadLoginState = ({ commit },data ) => {
+    commit(types.UPLOAD_LOGIN_STATE, data); // 发送指令，存储数据
+}

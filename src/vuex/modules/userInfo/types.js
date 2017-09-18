@@ -7,3 +7,4 @@
  * 更新用户信息
  * */
 export const UPLOAD_USER_INFO = 'UPLOAD_USER_INFO'; // 更新用户信息
+export const UPLOAD_LOGIN_STATE = 'UPLOAD_LOGIN_STATE'; // 更新用户信息
