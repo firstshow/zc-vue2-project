@@ -53,13 +53,13 @@
                 canvasHeight:200, // 画布高度
                 bgColor:'', // 背景渐变色
                 //Sin 曲线属性
-                xOffset:10, //波浪里面一层波浪的x偏移量
+                xOffset:0, //波浪里面一层波浪的x偏移量
                 xOffset1:0, //外面一层波浪x偏移量
                 axisLength:360, //轴长
                 waveWidth:0.015, //波浪宽度,数越小越宽
-                waveHeight:20, //波浪高度,数越大越高
-                speed:0.04, //波浪速度，数越大速度越快
-                speed1:0.08, //波浪速度，数越大速度越快
+                waveHeight:10, //波浪高度,数越大越高
+                speed:0.03, //波浪速度，数越大速度越快
+                speed1:0.05, //波浪速度，数越大速度越快
                 nowRange:5 //用于做一个临时的range
             }
         },
@@ -89,14 +89,15 @@
                 this.deviceWidth = document.body.clientWidth;
                 this.bgColor = this.ctx.createLinearGradient(0,0,this.deviceWidth,this.canvasHeight);
                 this.axisLength = this.deviceWidth; //轴长
-                myCanvas.width = this.deviceWidth;
+                myCanvas.width = this.deviceWidth*2;
                 myCanvas.style.width = this.deviceWidth+'px';
-                myCanvas.height = this.canvasHeight;
+                myCanvas.height = this.canvasHeight*2;
                 myCanvas.style.height = this.canvasHeight+'px';
                 // 设置上一层波浪的渐变色
                 this.bgColor.addColorStop(0,"#93afff");
                 this.bgColor.addColorStop(1,"#073ed1");
 
+                this.ctx.scale(2,2); // 画布宽高扩大一倍，解决图像模糊
                 this.render();
             },
             /**
@@ -105,9 +106,8 @@
              * @param xOffset 外面一层波浪x偏移量
              * */
             drawSin(xOffset,xOffset1){
-
+                this.ctx.save();
                 var points=[]; //用于存放绘制Sin曲线的点
-
                 // 绘制里面层波浪
                 this.ctx.beginPath();
                 //在整个轴长上取点
@@ -115,7 +115,7 @@
                     //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
                     var y = -Math.sin((0 + x) * this.waveWidth + xOffset);
 
-                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight - 160) );
+                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight/2) );
 
                     points.push([x, dY + y * this.waveHeight]);
                     this.ctx.lineTo(x, dY + y * this.waveHeight);
@@ -127,6 +127,7 @@
                 this.ctx.lineTo(points[0][0],points[0][1]);
                 this.ctx.fillStyle = '#8fb3ff';
                 this.ctx.fill();
+                this.ctx.restore();
 
                 // 绘制最外层波浪
                 this.ctx.beginPath();
@@ -135,7 +136,7 @@
                     //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
                     var y = -Math.sin((0 + x) * this.waveWidth + xOffset1);
 
-                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight-160) );
+                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight/2 ));
 
                     points.push([x, dY + y * this.waveHeight]);
                     this.ctx.lineTo(x, dY + y * this.waveHeight);
@@ -149,6 +150,7 @@
                 this.ctx.globalAlpha=0.68;
                 this.ctx.fill();
 
+                this.ctx.restore();
             },
             /**
              * 开始循环计算
