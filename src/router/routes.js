@@ -8,6 +8,7 @@
 // 引入首页路由
 const home = resolve => require(['./../views/homePage/home'], resolve);
 const test1 = resolve => require(['./../views/homePage/test1'], resolve);
+const test2 = resolve => require(['./../views/homePage/test2'], resolve);
 
 
 // 引入会员卡路由
@@ -35,6 +36,11 @@ export const pageRoutes = [
         path: '/home/test1',
         name : 'test1',
         component: test1,
+    },
+    {
+        path: '/home/test2',
+        name : 'test2',
+        component: test2,
     },
     /**
      * 会员卡

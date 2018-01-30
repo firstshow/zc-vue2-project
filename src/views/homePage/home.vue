@@ -22,8 +22,8 @@
         </swiper>
         <p v-for="item in 50" @touchstart="audioAutoPlay('audio')">{{userInfo.username}}</p>
         <x-button >切换</x-button>
-        <x-button @on-click="goNext()">跳转到下一个页面</x-button>
-        <x-button @on-click="goNext()">跳转到下一个页面</x-button>
+        <x-button @on-click="goNext(1)">跳转到下一个页面</x-button>
+        <x-button @on-click="goNext(2)">跳转到下一个页面</x-button>
         <a href="sms://10086?body='1111'">移动WEB页面JS一键发送短信咨询功能</a>
         <x-alert :show="alertShow" title="我是测试" @on-cancel="alertShow = false"></x-alert>
 
@@ -170,8 +170,12 @@
                 this.drawSin(this.xOffset, this.xOffset1);
                 requestAnimationFrame(this.render);
             },
-            goNext() {
-                this.$router.push({name: 'test1'});
+            goNext(index) {
+                if(index === 1){
+                    this.$router.push({name: 'test1'});
+                } else {
+                    this.$router.push({name: 'test2'});
+                }
             },
             showLogin() {
                 this.uploadLoginState(true);

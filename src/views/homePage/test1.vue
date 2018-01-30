@@ -1,7 +1,7 @@
 <template>
     <x-content v-scroll-record color="#f00" title="111">
         <ul class="x-scroll" v-load-more="loadMore" :load-disabled="loadDisabled" style="overflow:auto;-webkit-overflow-scrolling: touch;">
-            <li v-for="item in list"> {{item}} </li>
+            <li v-for="item in list"> {{item}}</li>
             <li>加载中...</li>
         </ul>
     </x-content>
