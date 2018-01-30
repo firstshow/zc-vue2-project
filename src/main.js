@@ -8,6 +8,7 @@ import store from './vuex/store'
 import * as filters from './filters/' // 自定义过滤器
 import components from './components/' //加载公共组件
 import { scrollRecord } from './lib/route-data/scroll-record'
+import loadMore  from './directives/loadMore'
 Vue.config.productionTip = false
 
 /**
@@ -51,6 +52,11 @@ Object.keys(components).forEach((key) => {
  * 需要记录滚动条位置的指令
  */
 Vue.directive('scroll-record', scrollRecord);
+
+/**
+ * 需要记录滚动条位置的指令
+ */
+Vue.directive('load-more', loadMore);
 
 /* eslint-disable no-new */
 new Vue({

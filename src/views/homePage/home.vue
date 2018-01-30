@@ -20,12 +20,17 @@
             </div>
           </swiper-slide>
         </swiper>
-        <p v-for="item in 50">{{userInfo.username}}</p>
-        <x-button @on-click="showLogin()">切换</x-button>
+        <p v-for="item in 50" @touchstart="audioAutoPlay('audio')">{{userInfo.username}}</p>
+        <x-button >切换</x-button>
         <x-button @on-click="goNext()">跳转到下一个页面</x-button>
         <x-button @on-click="goNext()">跳转到下一个页面</x-button>
         <a href="sms://10086?body='1111'">移动WEB页面JS一键发送短信咨询功能</a>
         <x-alert :show="alertShow" title="我是测试" @on-cancel="alertShow = false"></x-alert>
+
+        <audio src="./../../../static/voice_fubei_get_money_success.mp3" id="audio">
+            您的浏览器不支持 audio 标签。
+        </audio>
+
     </x-content>
 </template>
 
@@ -73,6 +78,7 @@
         },
         mounted(){
             this.initCanvas();
+//            this.audioAutoPlay('audio');//xxx是你audio标签的id
         },
         methods : {
             ...mapActions([
@@ -82,22 +88,22 @@
             /**
              * 初始化canvass
              * */
-            initCanvas(){
+            initCanvas() {
                 let myCanvas = document.getElementById('myCanvas');
 
                 this.ctx = myCanvas.getContext('2d');
                 this.deviceWidth = document.body.clientWidth;
-                this.bgColor = this.ctx.createLinearGradient(0,0,this.deviceWidth,this.canvasHeight);
+                this.bgColor = this.ctx.createLinearGradient(0, 0, this.deviceWidth, this.canvasHeight);
                 this.axisLength = this.deviceWidth; //轴长
-                myCanvas.width = this.deviceWidth*2;
-                myCanvas.style.width = this.deviceWidth+'px';
-                myCanvas.height = this.canvasHeight*2;
-                myCanvas.style.height = this.canvasHeight+'px';
+                myCanvas.width = this.deviceWidth * 2;
+                myCanvas.style.width = this.deviceWidth + 'px';
+                myCanvas.height = this.canvasHeight * 2;
+                myCanvas.style.height = this.canvasHeight + 'px';
                 // 设置上一层波浪的渐变色
-                this.bgColor.addColorStop(0,"#93afff");
-                this.bgColor.addColorStop(1,"#073ed1");
+                this.bgColor.addColorStop(0, "#93afff");
+                this.bgColor.addColorStop(1, "#073ed1");
 
-                this.ctx.scale(2,2); // 画布宽高扩大一倍，解决图像模糊
+                this.ctx.scale(2, 2); // 画布宽高扩大一倍，解决图像模糊
                 this.render();
             },
             /**
@@ -105,17 +111,17 @@
              * @param xOffset 波浪里面一层波浪的x偏移量
              * @param xOffset 外面一层波浪x偏移量
              * */
-            drawSin(xOffset,xOffset1){
+            drawSin(xOffset, xOffset1) {
                 this.ctx.save();
-                var points=[]; //用于存放绘制Sin曲线的点
+                var points = []; //用于存放绘制Sin曲线的点
                 // 绘制里面层波浪
                 this.ctx.beginPath();
                 //在整个轴长上取点
-                for(var x = 0; x < 0 + this.axisLength; x += 20 / this.axisLength){
+                for (var x = 0; x < 0 + this.axisLength; x += 20 / this.axisLength) {
                     //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
                     var y = -Math.sin((0 + x) * this.waveWidth + xOffset);
 
-                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight/2) );
+                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight / 2) );
 
                     points.push([x, dY + y * this.waveHeight]);
                     this.ctx.lineTo(x, dY + y * this.waveHeight);
@@ -124,7 +130,7 @@
                 //封闭路径
                 this.ctx.lineTo(this.axisLength, 0);
                 this.ctx.lineTo(0, 0);
-                this.ctx.lineTo(points[0][0],points[0][1]);
+                this.ctx.lineTo(points[0][0], points[0][1]);
                 this.ctx.fillStyle = '#8fb3ff';
                 this.ctx.fill();
                 this.ctx.restore();
@@ -132,11 +138,11 @@
                 // 绘制最外层波浪
                 this.ctx.beginPath();
                 //在整个轴长上取点
-                for(var x = 0; x < 0 + this.axisLength; x += 20 / this.axisLength){
+                for (var x = 0; x < 0 + this.axisLength; x += 20 / this.axisLength) {
                     //此处坐标(x,y)的取点，依靠公式 “振幅高*sin(x*振幅宽 + 振幅偏移量)”
                     var y = -Math.sin((0 + x) * this.waveWidth + xOffset1);
 
-                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight/2 ));
+                    var dY = this.canvasHeight * (1 - this.nowRange / (this.canvasHeight / 2 ));
 
                     points.push([x, dY + y * this.waveHeight]);
                     this.ctx.lineTo(x, dY + y * this.waveHeight);
@@ -145,9 +151,9 @@
                 //封闭路径
                 this.ctx.lineTo(this.axisLength, 0);
                 this.ctx.lineTo(0, 0);
-                this.ctx.lineTo(points[0][0],points[0][1]);
+                this.ctx.lineTo(points[0][0], points[0][1]);
                 this.ctx.fillStyle = this.bgColor;
-                this.ctx.globalAlpha=0.68;
+                this.ctx.globalAlpha = 0.68;
                 this.ctx.fill();
 
                 this.ctx.restore();
@@ -156,30 +162,41 @@
              * 开始循环计算
              * 每一次渲染先清除画布
              * */
-            render(){
+            render() {
                 this.ctx.clearRect(0, 0, this.deviceWidth, this.canvasHeight);
                 this.xOffset += this.speed;
                 this.xOffset1 += this.speed1;
 
-                this.drawSin(this.xOffset,this.xOffset1);
+                this.drawSin(this.xOffset, this.xOffset1);
                 requestAnimationFrame(this.render);
             },
-            goNext(){
-                this.$router.push({name : 'test1'});
+            goNext() {
+                this.$router.push({name: 'test1'});
             },
-            showLogin(){
+            showLogin() {
                 this.uploadLoginState(true);
             },
-            getHomeDate(){
+            getHomeDate() {
                 this.uploadUserInfo({
-                    page : 1,
-                    pageSize : 3 ,
-                    recommend : 1
-                }).then(res=>{
+                    page: 1,
+                    pageSize: 3,
+                    recommend: 1
+                }).then(res => {
                     console.log(res);
                 });
+            },
+            audioAutoPlay(id) {
+                console.log(id);
+                var audio = document.getElementById(id);
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+                document.addEventListener('AlipayJSBridgeReady', function () {
+                    audio.play();
+                }, false);
             }
-        },
+        }
     }
 </script>
 
